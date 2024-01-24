@@ -2,6 +2,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 
+export const loginToken = "c4240547ce23b75b13893aa8f4e4fcdc5e8400c234c7e13673774eb1547d085fe3cb0dc4825f85c4923ed830d068e20a8f96dc12e6c042af23fcc96ef21e1195f096532cc3f3414721dd3a0c444a9dd31f4c5e38c6be7a432e68ea4d266cd5f9bd0abf66cee0a1326538722b43a2bb06bf56d62a27d0aa2170aee4daa19310dd63456d54dbcffe3f73b4bb63b6659515f8be0415d422e6d9c18bb200d66f32e2e0ed0faf62c9cac1595a39227fc4c921eefba3b447842edf86b5262e9960d7b442e78f368112af66df2f3f0c676705d0d56795fbfafdda9b038cfc0166c76b34";
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
