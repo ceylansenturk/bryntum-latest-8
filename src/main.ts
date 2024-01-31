@@ -2,7 +2,31 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 
-export const loginToken = "61cc165b3796e69911be94921afb7a13ce6b9b5382fa28dfb7838cde2ed7bfda9849cd4e161ca66157729961e5b833c75e4ebb590044a6db05131a5633821c8208bac66f08d6c40652ee2f05b7c9e62409b75ededa347d11b7d4598609b34d08ff0938cad8bca3905654ff464e83026c331a05c1362338692cf10f5421603cd632594fd217bc08fe8b748da69cefbce91b4afba32578d247cad2fdc5970cffbee44246f137b1b8d7b32ecd78850ec296a86be271109e8e58659026e98107fb2ff5bbb5fee7bd78354715f96df0a23520c922601a2a982785f73d25fea161171d";
+export const loginToken = "ddfe8409fc818c6b5a70ce88a55737c7ae5504977704df10f9762a8d29137a855c5afc45096cb02587e4280cbc3c7a918e62c794d1d6987f8105375a849ef71945087b5e24a008eee4fbd4d12d0c1b5a4ba2e50e5543252c8dd82e1ddd5461ab4ee73f74712412a72428f3c389001fb9645a1f45992898c2e98fccadaa4394ac5ebd532ced35e6931adce034003978a52fe4d432913a96fb864cfb412e7dd7071763ba0afcfad45241ffd92d820cf4b41714613042c05d5cb5f9a93a9240509fd47c0a1e64988a37490a11e64f18bbcdf29e028991b1b2a5be6c0fc2ac5a472c";
+
+export const viewPresettt = {
+  "tickWidth": 120,
+  "displayDateFormat": "DD.MM.YYYY hh:MM",
+  "shiftIncrement": 1,
+  "shiftUnit": "minute",
+  "defaultSpan": 1,
+  "timeResolution": {
+    "unit": "minute",
+    "increment": 60
+  },
+  "headers": [
+    {
+      "unit": "day",
+      "dateFormat": "DD MMMM"
+    },
+    {
+      "unit": "minute",
+      "dateFormat": "HH:mm",
+      "increment": 60
+    }
+  ],
+  "columnLinesFor": 1
+}
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));

@@ -92,7 +92,7 @@ export class AngSchedulerService {
             "Action": "Select",
             "Object": "VW_MT_CONTACTREQUEST_ACTION",
             "Select": ["*"],
-            "Where": [{ "Column": "ACTIONSTART", "Operator": ">=", "Value": "2024-01-25" }, { "Column": "ACTIONSTART", "Operator": "<=", "Value": "2024-01-25" },
+            "Where": [{ "Column": "ACTIONSTART", "Operator": ">=", "Value": "2024-01-31" }, { "Column": "ACTIONSTART", "Operator": "<=", "Value": "2024-01-31" },
             { "Column": "SUBEID", "Operator": "IN", "Value": ["30"], "IsNull": "30" }],
             "Paging": { "Current": 1, "ItemsPerPage": 100 },
             "LoginToken": loginToken
