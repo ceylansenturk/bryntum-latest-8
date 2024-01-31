@@ -1,1 +1,81 @@
 @import "../../node_modules/@bryntum/scheduler/scheduler.material.css";
+
+.scheduler-container{
+  width: 100%;
+  height: 100%;
+
+  .header-container{
+    background: #40598e;
+    display:flex;
+    align-items:center;
+    width: 100%;
+    height: 10%;
+
+    .scheduler-header{
+      color: #fff;
+      font-weight: normal;
+      margin:0;
+      font-size: 20px;
+    }
+
+    .scheduler-filter{
+      padding: 3px;
+
+      input{
+        font-size:12px;
+      }
+    }
+
+
+    .total-events-style{
+      color: white;
+      font-size: 14px;
+    }
+
+
+    button, mat-icon{
+      background: #8BC34A;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 2px;
+      width: 24px!important;
+      height: 24px!important;
+      padding: 0;
+      box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  
+      &:hover {
+        background: #9CCC65;
+      }
+  
+      &:active {
+        background: #9CCC65;
+      }
+  
+      &:disabled {
+        background: #ccbdb8 !important;
+        cursor: default;
+      }
+  
+      &.red {
+        background: #F44336;
+      }
+  
+      &.red:hover {
+        background: #EF5350;
+      }
+    }
+  }
+
+  
+  bryntum-scheduler{
+    height:90%;
+    width:100%;
+  }
+
+}
+
+
+:host ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled){
+  background-color: transparent;
+}

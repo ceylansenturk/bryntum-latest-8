@@ -1,6 +1,6 @@
 import { SchedulerConfig } from '@bryntum/scheduler';
 
-export const schedulerConfig: Partial<SchedulerConfig> = {
+export const testConfig: Partial<SchedulerConfig> = {
     columns : [
         { text : 'Name', field : 'name', width : 160 }
     ],
@@ -15,5 +15,11 @@ export const schedulerConfig: Partial<SchedulerConfig> = {
     events: [
         { resourceId : 1, startDate : '2022-01-01', endDate : '2022-01-10' },
         { resourceId : 2, startDate : '2022-01-02', endDate : '2022-01-09' }
-    ]
+    ],
+
+    features: {
+        timeRanges: {
+            showCurrentTimeLine: true
+        }
+    }
 };

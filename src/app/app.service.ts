@@ -92,12 +92,11 @@ export class AngSchedulerService {
             "Action": "Select",
             "Object": "VW_MT_CONTACTREQUEST_ACTION",
             "Select": ["*"],
-            "Where": [{ "Column": "ACTIONSTART", "Operator": ">=", "Value": "2024-01-24" }, { "Column": "ACTIONSTART", "Operator": "<=", "Value": "2024-01-24" },
+            "Where": [{ "Column": "ACTIONSTART", "Operator": ">=", "Value": "2024-01-25" }, { "Column": "ACTIONSTART", "Operator": "<=", "Value": "2024-01-25" },
             { "Column": "SUBEID", "Operator": "IN", "Value": ["30"], "IsNull": "30" }],
             "Paging": { "Current": 1, "ItemsPerPage": 100 },
             "LoginToken": loginToken
         }
-
         const result = await firstValueFrom(this.http.post<any>('https://7002.hoteladvisor.net/Select/VW_MT_CONTACTREQUEST_ACTION', body));
         return result
     }

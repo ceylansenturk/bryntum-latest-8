@@ -1,12 +1,91 @@
+<div class="scheduler-container">
+    <header class="header-container">
+        <h1 class="scheduler-header">CRM Calendar</h1>
+        <div>
+            <input
+              [disabled]="this.loadingData"
+              type="text"
+              [formControl]="searchControl"
+              [placeholder]="searchBoxPlaceholder ? searchBoxPlaceholder : ''"
+              class="scheduler-filter"
+            >
+          </div>
+
+          <div>
+            <select (change)="modeChange($event)" class="scheduler-filter">
+              <option *ngFor="let mode of calendarMode">
+                {{mode.NAME}}
+              </option>
+            </select>
+          </div>
+
+          <div>
+            <select (change)="changeTime($event)" [disabled]="this.loadingData" class="scheduler-filter">
+              <option
+                value="{{option}}"
+                [selected]="timeIncrement$.getValue() == option"
+                *ngFor="let option of minuteOptions"
+              >
+                {{option}}
+              </option>
+            </select>
+          </div>
+
+          <div>
+            <button mat-raised-button (click)="onDecreaseOneDay()" [disabled]="loadingData" class="textButtons" title="Önceki Gün">
+              <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="dropdownDate" (ngModelChange)="changeStart(dropdownDate)" [disabled]="loadingData" class="date-picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker">
+                      <mat-icon matDatepickerToggleIcon title="Takvimi Aç">keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            </div>
+            <div>
+            <button mat-raised-button (click)="onAddOneDay()" [disabled]="loadingData" class="textButtons" title="Sonraki Gün">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+              </button>
+          </div>
+          <div> <!--(click)="refreshCalendar(false)" REFRESH CALENDAR ÇALIŞINCA BU KODU EKLE-->
+            <button  mat-raised-button [disabled]="loadingData" class="textButtons" title="Ajandayı Yenile">
+              <mat-icon>refresh</mat-icon>
+            </button>
+          </div>
+
+          <div><!--*ngIf="this.apiService.adminLevel > 99"-->
+            <button (click)="openConfigDialog()" mat-raised-button [disabled]="loadingData" class="textButtons" title="Config Düzenle">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+          <div>
+            <label class="total-events-style">
+              Toplam İş Sayısı: {{ totalEvents }}
+            </label>
+          </div>
+          
+    </header>
 @if (displayScheduler === true) {
-    <bryntum-scheduler
-    #scheduler
-    [resources] = "schedulerConfig.resources!"
-    [events] = "schedulerConfig.events!"
-    [columns] = "schedulerConfig.columns!"
-    [startDate] = "schedulerConfig.startDate!"
-    [endDate] = "schedulerConfig.endDate!"
-    [viewPreset] = "schedulerConfig.viewPreset!"
-></bryntum-scheduler>
+<bryntum-scheduler #scheduler 
+    [resources]="schedulerConfig.resources!" 
+    [events]="schedulerConfig.events!" 
+    [columns]="schedulerConfig.columns!" 
+    [startDate]="schedulerConfig.startDate!" 
+    [endDate]="schedulerConfig.endDate!"
+    [viewPreset]="schedulerConfig.viewPreset!" 
+    [features]="schedulerConfig.features!"
+    [rowHeight]="schedulerConfig.rowHeight!" 
+    [barMargin]="schedulerConfig.barMargin!"
+    [minHeight]="schedulerConfig.minHeight!" 
+    [eventStyle]="schedulerConfig.eventStyle!" 
+    [mode]="schedulerConfig.mode!"
+    [snapRelativeToEventStartDate]="schedulerConfig.snapRelativeToEventStartDate!"
+    [eventRenderer]="eventRenderer.bind(this)">
+</bryntum-scheduler>
+
 }
+</div>
 
